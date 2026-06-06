@@ -10,14 +10,14 @@ $year = isset($_GET['year']) ? $_GET['year'] : '';
 $schoolNo = strtolower($_GET['school'] ?? '');
 
 if (empty($year) || empty($schoolNo)) {
-    echo "<p style='color:red;'>❌ Missing parameters. Use ?year=2024&school=PS0401058&class=acsee</p>";
+    echo "<p style='color:red;'>❌ Missing parameters. Use ?year=2024&school=PS0401058</p>";
     exit;
 }
 
 
 // Construct NECTA URL
 $url = "https://matokeo.necta.go.tz/results/{$year}/acsee/results/{$schoolNo}.htm";
-if ($year>=2023 && $year<=2025){
+if ($year>=2023){
     $url="https://onlinesys.necta.go.tz/results/{$year}/acsee/results/{$schoolNo}.htm";
 }
 

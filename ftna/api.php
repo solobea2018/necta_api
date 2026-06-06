@@ -16,7 +16,7 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
         exit;
     }
 
-    $url = 'https://olas.heslb.go.tz/pgz/necta-pre-reg/get-f4-candidate-details/?index_no='. urlencode($indexNo);
+    $url = 'https://olas.heslb.go.tz/pgz/necta-pre-reg/get-f2-candidate-details/?index_no='. urlencode($indexNo);
 
     $ch = curl_init($url);
 
@@ -66,155 +66,40 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
     ]);
     exit;
 }
+$date=date('Y');
+$c_year=intval($date);
+$ly = $c_year - 1;
+$my = $c_year - 2;
+$fy = $c_year - 3;
+$years=<<<years
+<div class="years">
+        <a href="index.php?year={$fy}"> {$fy}</a>
+        <a href="index.php?year={$my}"> {$my}</a>
+        <a href="index.php?year={$ly}"> {$ly}</a>
+        <a href="index.php?year={$c_year}"> {$c_year}</a>
+    </div>
+years;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CSEE Results Portal</title>
+    <title>FTNA Results Portal</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f2f4f8;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        header h2 {
-            color: #4b0082;
-            margin-bottom: 5px;
-        }
-
-        header p {
-            color: #555;
-        }
-
-        /* Year links */
-        .years {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .years a {
-            background: #4b0082;
-            color: #fff;
-            padding: 10px 16px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .years a:hover {
-            background: #360061;
-        }
-
-        /* Search card */
-        .card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,.08);
-        }
-
-        .form-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .form-group input {
-            flex: 1;
-            padding: 12px;
-            font-size: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-
-        .form-group button {
-            padding: 12px 20px;
-            background: #4b0082;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .form-group button:hover {
-            background: #360061;
-        }
-
-        .loading {
-            margin-top: 15px;
-            color: #555;
-        }
-
-        .error {
-            color: red;
-            margin-top: 15px;
-        }
-
-        /* Result table */
-        .result {
-            margin-top: 20px;
-        }
-
-        .result table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .result td {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .result td:first-child {
-            font-weight: bold;
-            width: 40%;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .form-group {
-                flex-direction: column;
-            }
-
-            .result td:first-child {
-                width: auto;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/api.css">
 </head>
 
 <body>
 <div class="container">
 
     <header>
-        <h2>CSEE Results Portal</h2>
-        <p>Search Form Four candidate results</p>
+        <h2>FTNA Results Portal</h2>
+        <p>Search Form Two candidate results</p>
     </header>
 
     <!-- YEAR LINKS -->
-    <div class="years">
-        <a href="csee.php?year=2022">CSEE 2022</a>
-        <a href="csee.php?year=2023">CSEE 2023</a>
-        <a href="csee.php?year=2024">CSEE 2024</a>
-        <a href="csee.php?year=2025">CSEE 2025</a>
-    </div>
+    <?=$years?>
 
     <!-- SEARCH CARD -->
     <div class="card">

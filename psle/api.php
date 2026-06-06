@@ -23,9 +23,11 @@ if (!$year || !$school || !$index) {
 // --------------------
 $schoolLower = strtolower($school);
 
-if ($year == 2025) {
+/*  Has beed deleted from necta
+ * if ($year == 2025) {
     $url = "https://matokeo.necta.go.tz/results/{$year}/psle/results/shl_{$schoolLower}.htm";
-} elseif ($year <= 2021 && $year >= 2016) {
+}*/
+if ($year <= 2021 && $year >= 2016) {
     $url = "https://maktaba.tetea.org/exam-results/PSLE{$year}/shl_{$schoolLower}.htm";
 } else {
     $url = "https://onlinesys.necta.go.tz/results/{$year}/psle/results/shl_{$schoolLower}.htm";
