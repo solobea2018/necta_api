@@ -12,7 +12,7 @@ if (!empty($year)) {
 
     // Construct NECTA URL
     $url = "https://matokeo.necta.go.tz/results/{$year}/acsee/index.htm";
-    if ($year>=2023){
+    if ($year>=2023 && $year<=2025){
         $url="https://onlinesys.necta.go.tz/results/{$year}/acsee/index.htm";
     }
 
